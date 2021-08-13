@@ -1,0 +1,19 @@
+{
+  "name": "tlo",
+  "version": "0.0.1",
+  "description": "",
+  "main": "tlo/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MarshalX/tlo.git"
+  },
+  "author": "Il`ya Semyonov <ilya@marshal.dev>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MarshalX/tlo/issues"
+  },
+  "homepage": "https://github.com/MarshalX/tlo#readme"
+}
