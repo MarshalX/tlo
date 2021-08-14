@@ -1,8 +1,8 @@
 import logging
 
-from tl_core import *
-from tl_config import TlConfig
-from tl_simple_parser import TlSimpleParser
+from .tl_core import *
+from .tl_config import TlConfig
+from .tl_simple_parser import TlSimpleParser
 
 TLS_SCHEMA_V2 = 0x3A2F9BE2
 TLS_SCHEMA_V3 = 0xE4A8604B
@@ -27,7 +27,7 @@ TLS_TYPE_EXPR = 0xC1863D08
 logger = logging.getLogger(__name__)
 
 
-class TlConfigParser:
+class TlConfigParser(TlBase):
     def __init__(self, data: bytes):
         self.p = TlSimpleParser(data)
         self.schema_version = -1
@@ -38,7 +38,7 @@ class TlConfigParser:
         if self.schema_version < 2:
             raise RuntimeError(f'Unsupported tl-schema version {self.schema_version}')
 
-        self.try_parse_int()     # date
+        self.try_parse_int()  # date
         self.try_parse_int()  # version
 
         types_n = self.try_parse_int()

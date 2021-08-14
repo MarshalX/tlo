@@ -1,9 +1,10 @@
 [tool.poetry]
 name = "tlo"
 version = "0.0.1"
-description = ""
+description = "Reader of binary serialized Type Language Schema"
 authors = ["Il'ya Semyonov <ilya@marshal.dev>"]
 license = "MIT"
+readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.6"

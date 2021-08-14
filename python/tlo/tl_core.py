@@ -1,6 +1,5 @@
 from typing import List
 
-
 NODE_TYPE_TYPE = 1
 NODE_TYPE_NAT_CONST = 2
 NODE_TYPE_VAR_TYPE = 3

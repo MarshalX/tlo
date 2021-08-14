@@ -1,8 +1,9 @@
 from typing import List, Dict, Union
-from tl_core import TlType, TlCombinator
+
+from .tl_core import TlBase, TlType, TlCombinator
 
 
-class TlConfig:
+class TlConfig(TlBase):
     def __init__(
         self,
     ):

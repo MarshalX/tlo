@@ -21,20 +21,18 @@ class TlSimpleParser:
         if self.error is not None:
             assert error_message is not None
             self.error = error_message
-            # TODO
-            # working with pointers
-            # self.error_pos = self.data - self.data_begin
+            self.error_pos = len(self.data_begin) - len(self.data)
             self.data = b'\x00\x00\x00\x00\x00\x00\x00\x00'
             self.data_len = 0
         else:
             self.data = b'\x00\x00\x00\x00\x00\x00\x00\x00'
             assert self.data_len == 0
 
-    def check_len(self, len: int) -> None:  # orig size_t
-        if self.data_len < len:
+    def check_len(self, len_: int) -> None:  # orig size_t
+        if self.data_len < len_:
             self.set_error('Not enough data to read')
         else:
-            self.data_len -= len
+            self.data_len -= len_
 
     def get_error(self) -> str:
         return self.error
