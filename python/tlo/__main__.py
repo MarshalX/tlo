@@ -18,4 +18,8 @@ def read_tl_config_from_file(file_name: str) -> 'TlConfig':
 
 if __name__ == '__main__':
     # test
-    read_tl_config_from_file('mtproto_api.tlo')
+    p = read_tl_config_from_file('mtproto_api.tlo')
+    p = read_tl_config_from_file('td_api.tlo')
+    p = read_tl_config_from_file('telegram_api.tlo')
+
+    p

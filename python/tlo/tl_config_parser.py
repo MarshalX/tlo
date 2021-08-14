@@ -1,5 +1,4 @@
 import logging
-from typing import List
 
 from tl_core import *
 from tl_config import TlConfig
@@ -39,8 +38,8 @@ class TlConfigParser:
         if self.schema_version < 2:
             raise RuntimeError(f'Unsupported tl-schema version {self.schema_version}')
 
-        date = self.try_parse_int()
-        version = self.try_parse_int()
+        self.try_parse_int()     # date
+        self.try_parse_int()  # version
 
         types_n = self.try_parse_int()
         constructors_total = 0
@@ -76,8 +75,6 @@ class TlConfigParser:
         return -1
 
     def read_type(self):
-        # I think there is some little bug. Need to investigate. TODO
-
         t = self.try_parse_int()
         if t != TLS_TYPE:
             raise RuntimeError(f'Wrong tls_type magic {t}')

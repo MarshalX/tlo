@@ -1,7 +1,7 @@
 import struct
 
-format_int32 = 'i'  # can be 'l' too. TODO
-format_int64 = 'q'
+format_int32 = 'I'
+format_int64 = 'Q'
 format_unsigned_char = 'B'
 
 size_of_int32 = struct.calcsize(format_int32)
