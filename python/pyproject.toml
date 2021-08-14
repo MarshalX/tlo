@@ -1,10 +1,27 @@
 [tool.poetry]
 name = "tlo"
-version = "0.0.1"
+version = "1.0.1"
 description = "Reader of binary serialized Type Language Schema"
 authors = ["Il'ya Semyonov <ilya@marshal.dev>"]
 license = "MIT"
+repository = "https://github.com/MarshalX/tlo"
 readme = "README.md"
+keywords = ["library", "mtproto", "parser", "python", "schema", "tdlib", "telegram", "telegram-api", "tl", "tl-parser", "tl-schema", "tlo", "tlo-reader", "type-language"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Natural Language :: English",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3 :: Only",
+    "Topic :: Software Development",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Software Development :: Pre-processors",
+]
+
+[tool.poetry.urls]
+"Author" = "https://github.com/MarshalX"
 
 [tool.poetry.dependencies]
 python = "^3.6"

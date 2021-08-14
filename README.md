@@ -4,9 +4,9 @@
 
 ### Example of result in the end of reading TLO
 
-<center>
+<p align="center">
     <img src="https://raw.githubusercontent.com/MarshalX/tlo/main/.github/resources/demo.gif" alt="demo">
-</center>
+</p>
 
 ### Declaimer
 
@@ -65,7 +65,7 @@ npm install tlo
 
 You can find TLO files for tests [here](https://github.com/MarshalX/tlo/tree/main/tlo_for_tests).
 
-#### Python
+#### Python (3.6+)
 ```python
 from tlo import read_tl_config_from_file, read_tl_config
 
