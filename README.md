@@ -49,7 +49,6 @@ Raw TL Schema -> Tl Parser -> binary TL Object -> **TLO reader** -> code generat
 | **TLO reader** | **This repository contains implementation of it in Python and JavaScript.** Reader of binary file. Provide access to combinators, types, functions, arguments and so on via Object Oriented Programming. |
 | code generator | Any code generator. In [tdlib/td/generate](https://github.com/tdlib/td/tree/master/td/generate) there is generator for C++, JNI, .NET and JSON interfaces. |
 
-
 ### Installing
 
 #### For Python
@@ -57,12 +56,14 @@ Raw TL Schema -> Tl Parser -> binary TL Object -> **TLO reader** -> code generat
 pip install tlo
 ```
 
-#### For JavaScript
+#### ~~For JavaScript~~ Work in progress
 ```bash
 npm install tlo
 ```
 
 ### Usage
+
+You can find TLO files for tests [here](/tlo_for_tests).
 
 #### Python
 ```python
@@ -73,7 +74,7 @@ from tlo import read_tl_config_from_file, read_tl_config
 config = read_tl_config_from_file('td_api.tlo')
 ```
 
-#### JavaScript
+#### ~~JavaScript~~ Work in progress
 ```javascript
 import {read_tl_config_from_file, read_tl_config} from 'tlo';
 
