@@ -3,7 +3,9 @@ from tl_core import TlType, TlCombinator
 
 
 class TlConfig:
-    def __init__(self,):
+    def __init__(
+        self,
+    ):
         self.types: List['TlType'] = []
         self.id_to_type: Dict[int, 'TlType'] = {}  # orig int32_t
         self.name_to_type: Dict[str, 'TlType'] = {}

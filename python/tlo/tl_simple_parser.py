@@ -1,6 +1,12 @@
 import struct
 
-size_of_int32 = struct.calcsize('i')
+format_int32 = 'i'  # can be 'l' too. TODO
+format_int64 = 'q'
+format_unsigned_char = 'B'
+
+size_of_int32 = struct.calcsize(format_int32)
+size_of_int64 = struct.calcsize(format_int64)
+size_of_unsigned_char = struct.calcsize(format_unsigned_char)
 
 
 class TlSimpleParser:
@@ -38,15 +44,43 @@ class TlSimpleParser:
 
     def fetch_int(self) -> int:  # orig int32_t
         self.check_len(size_of_int32)
-        result = struct.unpack('i', self.data[:size_of_int32])[0]
+        result = struct.unpack(format_int32, self.data[:size_of_int32])[0]
         self.data = self.data[size_of_int32:]
         return result
 
     def fetch_long(self) -> int:  # orig int64_t
-        pass
+        self.check_len(size_of_int64)
+        result = struct.unpack(format_int64, self.data[:size_of_int64])[0]
+        self.data = self.data[size_of_int64:]
+        return result
+
+    def unpack_uchar(self, offset=0):
+        return struct.unpack(format_unsigned_char, self.data[offset:size_of_unsigned_char])[0]
 
     def fetch_string(self) -> str:
-        pass
+        self.check_len(4)
+        result_len = self.unpack_uchar()
+        if result_len < 254:
+            self.check_len((result_len >> 2) * 4)
+
+            result = struct.unpack('c' * result_len, self.data[1 : result_len + 1])
+            result_decoded = [c.decode('utf-8') for c in result]
+
+            self.data = self.data[((result_len >> 2) + 1) * 4 :]
+            return ''.join(result_decoded)
+
+        if result_len == 254:
+            result_len = self.unpack_uchar(1) + (self.unpack_uchar(2) << 8) + (self.unpack_uchar(3) << 16)
+            self.check_len(((result_len + 3) >> 2) * 4)
+
+            result = struct.unpack('c' * result_len, self.data[4 : result_len + 4])
+            result_decoded = [c.decode('utf-8') for c in result]
+
+            self.data = self.data[((result_len + 7) >> 2) * 4 :]
+            return ''.join(result_decoded)
+
+        self.set_error('Can\'t fetch string, 255 found')
+        return ''
 
     def fetch_end(self) -> None:
         if self.data_len:
