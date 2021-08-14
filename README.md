@@ -5,7 +5,7 @@
 ### Example of result in the end of reading TLO
 
 <center>
-    <img src="https://raw.githubusercontent.com/MarshalX/tgcalls/dev/.github/resources/demo.gif" alt="demo">
+    <img src="https://raw.githubusercontent.com/MarshalX/tlo/main/.github/resources/demo.gif" alt="demo">
 </center>
 
 ### Declaimer
