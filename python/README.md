@@ -63,7 +63,7 @@ npm install tlo
 
 ### Usage
 
-You can find TLO files for tests [here](/tlo_for_tests).
+You can find TLO files for tests [here](https://github.com/MarshalX/tlo/tree/main/tlo_for_tests).
 
 #### Python
 ```python
