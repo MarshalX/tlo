@@ -4,8 +4,15 @@
 
 ### Example of result in the end of reading TLO
 
+#### Python 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/MarshalX/tlo/main/.github/resources/demo.gif" alt="demo">
+    <img src="https://raw.githubusercontent.com/MarshalX/tlo/main/.github/resources/demo_python.gif" alt="demo python">
+</p>
+
+#### JavaScript/TypeScript
+
+<p align="center">
+    <img src="https://raw.githubusercontent.com/MarshalX/tlo/main/.github/resources/demo_javascript.gif" alt="demo javascript">
 </p>
 
 ### Declaimer
@@ -56,7 +63,7 @@ Raw TL Schema -> Tl Parser -> binary TL Object -> **TLO reader** -> code generat
 pip install tlo
 ```
 
-#### ~~For JavaScript~~ Work in progress
+#### For JavaScript/TypeScript
 ```bash
 npm install tlo
 ```
@@ -74,13 +81,15 @@ from tlo import read_tl_config_from_file, read_tl_config
 config = read_tl_config_from_file('td_api.tlo')
 ```
 
-#### ~~JavaScript~~ Work in progress
+#### JavaScript/TypeScript
 ```javascript
-import {read_tl_config_from_file, read_tl_config} from 'tlo';
+const tlo = require('tlo');
+//import {read_tl_config_from_file, read_tl_config} from 'tlo';
 
-
-// use read_tl_config(data) to pass bytes directly
-const config = read_tl_config_from_file('td_api.tlo')
+// use read_tl_config(data) to pass buffer directly
+tlo.read_tl_config_from_file('./tlo_for_tests/telegram_api.tlo', (config) => {
+    console.log(config);
+});
 ```
 
 ### Licence

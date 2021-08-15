@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "module": "ES6",
+    "lib": ["es2017", "es7", "es6", "dom"],
+    "outDir": "dist",
+    "declaration": true,
+    "sourceMap": true,
+    "strict": true,
+    "typeRoots": [
+      "./node_modules/@types"
+    ],
+    "esModuleInterop": true
+  },
+  "compileOnSave": true,
+  "include": [
+    "tlo",
+    ".eslintrc.cjs"
+  ],
+  "exclude": [
+    "dist"
+  ]
+}
